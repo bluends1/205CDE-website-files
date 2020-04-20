@@ -1,0 +1,15 @@
+{% extends "navbar.html" %}
+{% block content %}
+<br><br><br>
+<form class="homeform" action="/search/" method="GET">
+    <label for="hkey" class="homesearchtext">Search for products</label><br>
+    <input type="text" name="hkey" class="homesearch"><br>
+    <input type="submit" value="Search" class="homesearchbtn align-center" formmethod="get">
+</form>
+<br><br><br><br><br><br><br>
+<div class="hometrans"><br><br></div>
+<div class="homedescdiv">
+    <p class="homedesc">&emsp;&emsp;&emsp;Ink Mayer is a fictional art supply selling network, with lots of products here in Ink Mayer, you're sure to find anything you like here, up from pencils and brushes to drawing tablets. Enjoy a easy to access product viewing page where you can easily read all the information that is within a product we're selling, and with the online ordering and shopping cart we can ensure that your ordered product will be delivered to your place efficiently.</p>
+	<p class="homedesc">&emsp;&emsp;&emsp;To find more details and contacts, navigate to the abouts and/or contacts tab, to view products and search for them, use the other tabs to view products in different categories, to login to an account/view orders and shopping carts, hover on the accoutns tab.</p>
+</div>
+{% endblock content %}

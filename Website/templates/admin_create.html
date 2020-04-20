@@ -1,0 +1,46 @@
+{% extends "admin_main.html" %}
+{% block content %}
+	<!-- form title -->
+	<h2>
+		{% if mode == "accounts" %}
+			Create Account
+        {% elif mode == "brands" %}
+            Create Brand
+        {% elif mode == "brands" %}
+            Create Product
+        {% endif %}
+	</h2>
+	<!-- form for creating in a database -->
+    <div class="adminform">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                {% for field in formfield %}
+                <div class="form-group">
+                    {{ field.label(class="form-control-label") }}
+                    {% if field.errors %}
+                        {{ field(class="form-control form-control-md is-invalid") }}
+                        <div class="'invalid-feedback">
+                            {% for error in field.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ field(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </fieldset>
+            <div class="form-group form-btn">
+                {% if mode == "accounts" %}
+                    {{ form.submit(class="btn", value="Create Account") }}
+                {% elif mode == "brands" %}
+                    {{ form.submit(class="btn", value="Create Brand") }}
+                {% elif mode == "products" %}
+                    {{ form.submit(class="btn", value="Create Product") }}
+                {% endif %}
+
+            </div>
+        </form>
+    </div>
+{% endblock content %}

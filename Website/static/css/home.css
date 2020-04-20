@@ -1,0 +1,56 @@
+.homeform {
+    text-align: center;
+}
+
+.homesearchtext {
+    text-align: center;
+    font-size: 25px;
+    font: bold;
+    font-family: 'Bell MT';
+}
+
+.homesearch {
+    width: 250px;
+    transition: width 0.4s;
+    text-align: center;
+    outline: none;
+    background: #d38e51;
+    border: 2px solid #7b4d39;
+    border-radius: 20px;
+    font-family: 'Bell MT';
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.homesearch:hover {
+    width: 350px;
+}
+
+.homesearchbtn {
+    width: 90px;
+    text-align: center;
+    outline: none;
+    background: #d38e51;
+    border: 2px solid #7b4d39;
+    border-radius: 20px;
+    font-family: 'Bell MT';
+    font-size: 20px;
+}
+
+.hometrans {
+    background: linear-gradient(to top, #d38e51 30%, #0000)
+}
+
+.homedescdiv {
+    background: #d38e51;
+    height: 100%;
+}
+
+.homedesc {
+    font-family: 'Bell MT';
+    font-size: 20px;
+}
+
+.about-text {
+    font-family: 'Bell MT';
+}

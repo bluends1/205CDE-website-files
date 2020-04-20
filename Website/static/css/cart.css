@@ -1,0 +1,43 @@
+.table-item {
+	background-color: #d38e51;
+	border: 2px solid #d38e51;
+}
+
+.total {
+	clear: both;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: fixed;
+	background-color: #d38e51;
+	border-top: 2px solid black;
+	text-align: center;
+	height: 15%;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-areas: 'total total total total orderbtn';
+}
+
+.total-count {
+	grid-area: total;
+    font-size: 30px;
+    font-family: 'Bell MT';
+    margin-top: 20px;
+}
+
+.order-cart {
+	grid-area: orderbtn;
+	margin-top: 20px;
+}
+
+.orderbtn {
+    font-size: 20px;
+    font-family: 'Bell MT';
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	border: 3px solid #7b4d39;
+	border-radius: 30px;
+	color: black;
+}

@@ -1,0 +1,45 @@
+body {
+    background-color: #e3e3e3;
+}
+
+.nav-item, .dropdown-item, .user-login, .nav-link {
+	color: white;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    background-color: #343a40;
+    transition: height 500ms;
+}
+
+.user-login {
+    margin: auto;
+    background-color: #343a40;
+    font-size: 14px;
+    text-align: right;
+}
+
+.table a {
+    display: block;
+    text-decoration: none;
+}
+
+.adminform {
+    margin: auto;
+    width: 350px;
+    border: solid #343a40 5px;
+    border-radius: 5px;
+    padding: 40px;
+}
+
+.form-btn {
+    text-align: center;
+    background-color: #1dcf23;
+    border: solid #0c750f 5px;
+    border-radius: 15px;
+}
+
+@keyframes Alertdis {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}

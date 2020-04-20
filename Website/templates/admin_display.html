@@ -1,0 +1,99 @@
+{% extends "admin_main.html" %}
+{% block content %}
+	<!-- table title -->
+	<h2>
+		{% if mode == "accounts" %}
+			Manage Accounts
+		{% elif mode == "brands" %}
+			Manage Brands
+		{% elif mode == "products" %}
+			Manage Products
+		{% elif mode == "orders" %}
+			Manage Orders
+		{% endif %}
+	</h2>
+
+	<!-- table displaying all the items in a database -->
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				{% if mode == "accounts" %}
+					{% for field in field_names %}
+						<th>{{ field[0] }}</th>
+					{% endfor %}
+				{% elif mode == "brands" %}
+					{% for field in field_names %}
+						<th>{{ field[0] }}</th>
+					{% endfor %}
+				{% elif mode == "products" %}
+					{% for field in field_names %}
+						{% if "Category" in field[0] %}
+							<th>{{ foreign_names[1][0] }}</th>
+						{% elif "Brand" in field[0] %}
+							<th>{{ foreign_names[0][0] }}</th>
+						{% else %}
+							<th>{{ field[0] }}</th>
+						{% endif %}
+					{% endfor %}
+				{% elif mode == "orders" %}
+					{% for field in field_names %}
+						{% if "Account" in field[0] %}
+							<th>{{ field[0] }}</th>
+							<th>{{ foreign_names[0][0] }}</th>
+						{% elif "Product" in field[0] %}
+							<th>{{ field[0] }}</th>
+							<th>{{ foreign_names[1][0] }}</th>
+							<th>{{ price_name[0][0] }}</th>
+						{% else %}
+							<th>{{ field[0] }}</th>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			</tr>
+		</thead>
+		<tbody>
+			{% if mode == "accounts"  %}
+				{% for result in results %}
+					<tr>
+						{% for value in result %}
+							<td>{{ value }}</td>
+						{% endfor %}
+						<td><a href="{{ url_for('admin_edit', mode='accounts', item_id=result[0]) }}">Edit</a></td>
+						<td><a href="{{ url_for('admin_delete', mode='accounts', item_id=result[0]) }}">Delete</a></td>
+					</tr>
+				{% endfor %}
+
+			{% elif mode == "brands"  %}
+				{% for result in results %}
+					<tr>
+						{% for value in result %}
+							<td>{{ value }}</td>
+						{% endfor %}
+						<td><a href="{{ url_for('admin_edit', mode='brands', item_id=result[0]) }}">Edit</a></td>
+						<td><a href="{{ url_for('admin_delete', mode='brands', item_id=result[0]) }}">Delete</a></td>
+					</tr>
+				{% endfor %}
+
+			{% elif mode == "products"  %}
+				{% for result in results %}
+					<tr>
+						{% for value in result %}
+							<td>{{ value }}</td>
+						{% endfor %}
+						<td><a href="{{ url_for('admin_edit', mode='products', item_id=result[0]) }}">Edit</a></td>
+						<td><a href="{{ url_for('admin_delete', mode='products', item_id=result[0]) }}">Delete</a></td>
+					</tr>
+				{% endfor %}
+			{% elif mode == "orders"  %}
+				{% for result in results %}
+					<tr>
+						{% for value in result %}
+							<td>{{ value }}</td>
+						{% endfor %}
+						<td><a href="{{ url_for('admin_delete', mode='orders', item_id=result[0]) }}">Cancel</a></td>
+					</tr>
+				{% endfor %}
+			{% endif %}
+		</tbody>
+	</table>
+{% endblock content %}

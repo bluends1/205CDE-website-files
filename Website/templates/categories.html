@@ -1,0 +1,25 @@
+{% extends "navbar.html" %}
+{% block content %}
+	{% if category == "drawing_pencils" %}
+	<h1>Browsing Drawing Pencils</h1>
+	{% elif category == "colored_pencils" %}
+	<h1>Browsing Colored Pencils</h1>
+	{% elif category == "brushes" %}
+	<h1>Browsing Brushes</h1>
+	{% elif category == "tablets" %}
+	<h1>Browsing Tablets</h1>
+	{% endif %}
+	<div class="grid-container">
+		{% for result in results %}
+			<a href="{{ url_for('products', item_id=result[0]) }}">
+				<div class="grid-item">
+					<div class="grid-img-container">
+						<img class="grid-img" src="{{ url_for('static',filename=result[5]) }}"/><br>
+					</div>
+					{{ result[3] }}<br>
+					${{ result[7] }}
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+{% endblock content %}
